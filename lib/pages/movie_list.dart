@@ -1,5 +1,5 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:praktikum9/pages/movie_detail.dart';
 import 'package:praktikum9/service/http_service.dart';
 
 class MovieList extends StatefulWidget {
@@ -45,6 +45,12 @@ class _MovieListState extends State<MovieList> {
               subtitle: Text(
                 'Rating = ' + movies[position].voteAverage.toString(),
               ),
+              //Untuk membuat perpindahan dari movie list ke movie detail buatlah onTap event di listview pada movie list
+              onTap: () {
+                MaterialPageRoute route = MaterialPageRoute(
+                    builder: (_) => MovieDetail(movies[position]));
+                Navigator.push(context, route);
+              },
             ),
           );
         },
